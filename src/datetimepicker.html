@@ -1,7 +1,7 @@
 <div class="form-group" ng-class="{'has-error': hasError() }">
   <label class="control-label" ng-show="showTitle()">{{form.title}}</label>
   <div class="row">
-    <div class="col-xs-5 col-sm-3 col-md-2">
+    <div class="form-control-date">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
         <input type="text" class="form-control" 
@@ -16,7 +16,7 @@
           bs-datepicker />
       </div>
     </div>
-    <div class="col-xs-5 col-sm-3 col-md-2">
+    <div class="form-control-time">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
         <input type="text" class="form-control" size="8"
