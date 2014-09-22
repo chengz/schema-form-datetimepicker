@@ -1,17 +1,22 @@
 <div class="form-group" ng-class="{'has-error': hasError() }">
-  <label class="control-label" ng-show="showTitle()"><i class="fa fa-calendar"></i>{{form.title}}</label>
-  <div>
-    <input type="text" class="form-control" 
-      ng-show="form.key"
-      ng-model="$$value$$"
-      schema-validate="form"
-      data-date-type="{{form.dateOptions.timeType || 'string'}}"
-      data-date-format="{{form.dateOptions.dateFormat || 'dd/MM/yyyy'}}"
-      data-autoclose="{{form.dateOptions.autoclose}}"
-      data-min-date="{{form.dateOptions.minDate}}"
-      data-max-date="{{form.dateOptions.maxDate}}"
-      data-use-navitve="{{form.dateOptions.useNative || false}}"
-      bs-datepicker />
+  <label class="control-label" ng-show="showTitle()">{{form.title}}</label>
+  <div class="row">
+    <div class="col-xs-5 col-sm-3 col-md-2">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+        <input type="text" class="form-control" 
+          ng-show="form.key"
+          ng-model="$$value$$"
+          schema-validate="form"
+          data-date-type="{{form.dateOptions.dateType || 'string'}}"
+          data-date-format="{{form.dateOptions.dateFormat || 'dd/MM/yyyy'}}"
+          data-autoclose="{{form.dateOptions.autoclose}}"
+          data-min-date="{{form.dateOptions.minDate}}"
+          data-max-date="{{form.dateOptions.maxDate}}"
+          data-use-navitve="{{form.dateOptions.useNative || false}}"
+          bs-datepicker />
+      </div>
+    </div>
   </div>
   <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}}</span>
 </div>

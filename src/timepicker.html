@@ -1,16 +1,21 @@
 <div class="form-group" ng-class="{'has-error': hasError() }">
-  <label class="control-label" ng-show="showTitle()"><i class="fa fa-clock-o"></i>{{form.title}}</label>
-  <div>
-    <input type="text" class="form-control" size="8"
-      ng-show="form.key"
-      ng-model="$$value$$"
-      schema-validate="form"
-      data-time-type="{{form.timeOptions.timeType || 'string'}}"
-      data-time-format="{{form.timeOptions.timeFormat || 'shortTime'}}"
-      data-autoclose="{{form.timeOptions.autoclose || '1'}}"
-      data-minute-step="{{form.timeOptions.minuteStep || '15'}}"
-      data-use-native="{{form.timeOptions.useNative || false}}"
-      bs-timepicker />
+  <label class="control-label" ng-show="showTitle()">{{form.title}}</label>
+  <div class="row">
+    <div class="col-xs-5 col-sm-2 col-md-2">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+        <input type="text" class="form-control" size="8"
+          ng-show="form.key"
+          ng-model="$$value$$"
+          schema-validate="form"
+          data-time-type="{{form.timeOptions.timeType || 'string'}}"
+          data-time-format="{{form.timeOptions.timeFormat || 'shortTime'}}"
+          data-autoclose="{{form.timeOptions.autoclose || '1'}}"
+          data-minute-step="{{form.timeOptions.minuteStep || '15'}}"
+          data-use-native="{{form.timeOptions.useNative || false}}"
+          bs-timepicker />
+      </div>
+    </div>
   </div>
   <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}}</span>
 </div>

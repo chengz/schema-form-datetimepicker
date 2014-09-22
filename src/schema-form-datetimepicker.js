@@ -3,7 +3,7 @@ angular.module('schemaForm-datetimepicker', ['schemaForm', 'mgcrea.ngStrap']).co
   function(schemaFormProvider,  schemaFormDecoratorsProvider, sfPathProvider) {
 
     var picker = function(name, schema, options) {
-    if (schema.type === 'number' && schema.format == 'datetimepicker') {
+    if (schema.type === 'object' && schema.format == 'datetimepicker') {
       var f = schemaFormProvider.stdFormObj(name, schema, options);
       f.key  = options.path;
       f.type = 'datetimepicker';
@@ -12,7 +12,7 @@ angular.module('schemaForm-datetimepicker', ['schemaForm', 'mgcrea.ngStrap']).co
     }
   };
 
-    schemaFormProvider.defaults.string.unshift(picker);
+    schemaFormProvider.defaults.object.unshift(picker);
 
   //Add to the bootstrap directive
     schemaFormDecoratorsProvider.addMapping('bootstrapDecorator', 'datetimepicker',

@@ -1,30 +1,35 @@
 <div class="form-group" ng-class="{'has-error': hasError() }">
-  <label class="control-label" ng-show="showTitle()"><i class="fa fa-calendar"></i>{{form.title}}</label>
-  <div class="form-group">
-    <input type="text" class="form-control" 
-      ng-show="form.key"
-      ng-model="$$value$$"
-      schema-validate="form"
-      data-date-type="number"
-      data-date-format="{{form.options.dateFormat || 'dd/MM/yyyy'}}"
-      data-autoclose="{{form.options.autoclose}}"
-      data-min-date="{{form.options.minDate}}"
-      data-max-date="{{form.options.maxDate}}"
-      data-use-navitve="{{form.options.useNative || false}}"
-      bs-datepicker />
+  <label class="control-label" ng-show="showTitle()">{{form.title}}</label>
+  <div class="row">
+    <div class="col-xs-5 col-sm-3 col-md-2">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+        <input type="text" class="form-control" 
+          ng-show="form.key"
+          ng-model="$$value$$"
+          data-date-type="object"
+          data-date-format="{{form.options.dateFormat || 'dd/MM/yyyy'}}"
+          data-autoclose="{{form.options.autoclose || '1'}}"
+          data-min-date="{{form.options.minDate}}"
+          data-max-date="{{form.options.maxDate}}"
+          data-use-navitve="{{form.options.useNative || false}}"
+          bs-datepicker />
+      </div>
+    </div>
+    <div class="col-xs-5 col-sm-3 col-md-2">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+        <input type="text" class="form-control" size="8"
+          ng-show="form.key"
+          ng-model="$$value$$"
+          data-time-type="object"
+          data-time-format="{{form.options.timeFormat || 'shortTime'}}"
+          data-minute-step="{{form.options.minuteStep || '15'}}"
+          data-use-native="{{form.options.useNative || false}}"
+          bs-timepicker />
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <input type="text" class="form-control" size="8"
-      ng-show="form.key"
-      ng-model="$$value$$"
-      schema-validate="form"
-      data-time-type="number"
-      data-time-format="{{form.options.timeFormat || 'shortTime'}}"
-      data-autoclose="{{form.options.autoclose || '1'}}"
-      data-minute-step="{{form.options.minuteStep || '15'}}"
-      data-use-native="{{form.options.useNative || false}}"
-      bs-timepicker />
-  </div>
-  {{$$value$$}}
+  <input type="hidden" sf-changed="form" ng-model="$$value$$" schema-validate="form" />
   <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}}</span>
 </div>
