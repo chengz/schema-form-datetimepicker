@@ -84,7 +84,8 @@ var app = angular.module('app', ['schemaForm-datepicker', 'schemaForm-datetimepi
   }
   var minDate = new Date();
   var maxDate = new Date(minDate).addDays(5)
-  $scope.model = { date: minDate, time: new Date(minDate).addDays(1), from_date: minDate, to_date: maxDate, datetime: minDate };
+  //$scope.model = { date: minDate, time: new Date(minDate).addDays(1), from_date: minDate, to_date: maxDate, datetime: minDate };
+  $scope.model = { to_be_published_at: new Date("2014-09-22 14:00:00.000") }
   $scope.form = [
     {
       'key': 'title',
