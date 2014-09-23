@@ -6,6 +6,9 @@ describe('Schema form', function() {
   describe('directive', function() {
     beforeEach(module('templates'));
     beforeEach(module('schemaForm'));
+    beforeEach(module('schemaForm-datepicker'));
+    beforeEach(module('schemaForm-timepicker'));
+    beforeEach(module('schemaForm-datetimepicker'));
     beforeEach(
       //We don't need no sanitation. We don't need no though control.
       module(function($sceProvider) {
@@ -65,5 +68,30 @@ describe('Schema form', function() {
       });
     });
 
+    it('should return correct form type for format "datetimepicker"',function(){
+      inject(function($compile,$rootScope, schemaForm){
+        var string_schema = {
+          type: "object",
+          properties: {
+            file: {
+              type: "string",
+            }
+          }
+        };
+
+        var date_schema = {
+          type: "object",
+          properties: {
+            file: {
+              type: "object",
+              format: "datetimepicker"
+            }
+          }
+        };
+
+        schemaForm.defaults(string_schema).form[0].type.should.be.eq("text");
+        schemaForm.defaults(date_schema).form[0].type.should.be.eq("datetimepicker");
+      });
+    });
   });
 });
