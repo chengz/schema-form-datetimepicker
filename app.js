@@ -60,7 +60,8 @@ var app = angular.module('app', ['schemaForm-datepicker', 'schemaForm-datetimepi
       to_date: {
         title: 'To Date',
         type: 'string',
-        format: 'datepicker'
+        format: 'datepicker',
+        default: '04/10/2014'
       },
       time: {
         title: 'Time',
@@ -73,6 +74,27 @@ var app = angular.module('app', ['schemaForm-datepicker', 'schemaForm-datetimepi
         'type': 'object',
         'format': 'datetimepicker',
         'description': 'This is a date and time'
+      },
+      list: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            opening_date: {
+              title: 'Opening date',
+              type: 'string',
+              format: 'datepicker',
+              description: 'Opening date given here.',
+              default: '04/10/2014'
+            },
+            opening_time: {
+              title: 'Opening time',
+              type: 'string',
+              format: 'timepicker',
+              description: 'Opening time mentioned here.',
+            }
+          }
+        }
       }
     },
     required: ['date']
@@ -138,7 +160,7 @@ var app = angular.module('app', ['schemaForm-datepicker', 'schemaForm-datetimepi
      {
        key: 'time',
        timeOptions: {
-         autoclose: "1",
+         autoclose: false,
          minuteStep: "15"
        }
      },
@@ -152,6 +174,26 @@ var app = angular.module('app', ['schemaForm-datepicker', 'schemaForm-datetimepi
          minuteStep: "15"
        }
      },
+      { 
+        key: 'list',
+        items: [
+          {
+            "key": "list[].opening_date",
+            default: '04/10/2014',
+            "dateOptions": {
+              "minDate": new Date(),
+              autoclose: '1'
+            }
+          },
+          {
+            "key": "list[].opening_time",
+            "dateOptions": {
+              "minuteStep": 15
+            }
+          },
+        ]
+    
+      },
      {
         type: "submit",
         style: "btn-info",

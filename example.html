@@ -9,7 +9,7 @@
     <link href="strap.min.css" media="all" rel="stylesheet" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src='bower_components/angular-strap/dist/angular-strap.min.js'></script>
     <script src='bower_components/angular-strap/dist/angular-strap.tpl.min.js'></script>
@@ -28,5 +28,6 @@
   </head>
   <body ng-controller='DateTimeController'>
     <form name="myForm" sf-schema="schema" sf-form="form" sf-model="model" ng-submit="onSubmit(myForm)"></form>
+    <form name="myForm" sf-schema="schema2" sf-form="form2" sf-model="model" ng-submit="onSubmit(myForm)"></form>
   </body>
 </html>

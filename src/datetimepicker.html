@@ -1,4 +1,4 @@
-<div class="form-group" ng-class="{'has-error': hasError() }">
+<div class="form-group" ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false }">
   <label class="control-label" ng-show="showTitle()">{{form.title}}</label>
   <div class="row">
     <div class="form-control-date">
@@ -31,5 +31,7 @@
     </div>
   </div>
   <input type="hidden" sf-changed="form" ng-model="$$value$$" schema-validate="form" />
-  <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}}</span>
+  <div class="help-block"
+    ng-show="(hasError() && errorMessage(schemaError())) || form.description"
+    ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description"></div>
 </div>
