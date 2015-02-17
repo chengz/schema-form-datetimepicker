@@ -1,7 +1,7 @@
 {
   "name": "schema-form-datetimepicker",
   "main": [
-    "schema-form-datetimepicker.min.js"
+    "schema-form-date-time-picker.min.js"
   ],
   "version": "0.1.0",
   "authors": [
