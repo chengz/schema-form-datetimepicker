@@ -3,26 +3,18 @@
   <div class="row">
     <div class="form-control-time">
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-        <!--<input type="text" class="form-control" size="8"
-          ng-show="form.key"
-          ng-model="$$value$$"
-          schema-validate="form"
-          data-use-native="{{form.timeOptions.useNative || false}}"
-          data-min-time="10:00"
-          data-max-time="16:30"
-          data-time-format="HH:mm"
-          data-time-type="string"
-          bs-timepicker />-->
-
-        <input type="text"
-               class="form-control"
-               size="8"
+        <!--<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>-->
+        <input type="text" class="form-control" size="8"
                ng-show="form.key"
                ng-model="$$value$$"
                schema-validate="form"
-               type="text" class="form-control" size="5" ng-model="selectedTimeAsNumber" data-time-format="HH:mm" data-time-type="number" data-min-time="7:00" data-max-time="17:30" data-autoclose="1" name="time2" bs-timepicker>
-
+               data-use-native="{{form.timeOptions.useNative || false}}"
+               data-min-time="10:00"
+               data-max-time="16:30"
+               data-time-format="HH:mm"
+               data-time-type="string"
+               data-round-display=true,
+               bs-timepicker />
       </div>
       <span ng-if="form.feedback !== false"
         class="form-control-feedback"
