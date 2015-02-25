@@ -8,12 +8,11 @@
           ng-show="form.key"
           ng-model="$$value$$"
           schema-validate="form"
-          data-minute-step="{{form.timeOptions.minuteStep || '15'}}"
           data-use-native="{{form.timeOptions.useNative || false}}"
           data-min-time="10:00"
           data-max-time="16:30"
           data-time-format="HH:mm"
-          data-time-type="number"
+          data-time-type="string"
           bs-timepicker />
       </div>
       <span ng-if="form.feedback !== false"
