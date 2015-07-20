@@ -1,10 +1,10 @@
-<div class="form-group" ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false }">
-  <label class="control-label" ng-show="showTitle()">{{form.title}}</label>
+<div class="form-group schema-form-datepicker {{form.htmlClass}}" ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false }">
+  <label class="control-label {{form.labelHtmlClass}}" ng-show="showTitle()">{{form.title}}</label>
   <div class="row">
     <div class="form-control-date">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-        <input type="text" class="form-control" 
+        <input type="text" class="form-control {{form.fieldHtmlClass}}" 
           ng-show="form.key"
           ng-model="$$value$$"
           schema-validate="form"

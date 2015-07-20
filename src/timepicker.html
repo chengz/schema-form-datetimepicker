@@ -1,8 +1,8 @@
-<div class="form-group" ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false }">
-  <label class="control-label" ng-show="showTitle()">{{form.title}}</label>
-
+<div class="form-group schema-form-timepicker {{form.htmlClass}}" ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false }">
+  <label class="control-label {{form.labelHtmlClass}}" ng-show="showTitle()">{{form.title}}</label>
+    <div class="form-control-time">
         <!--<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>-->
-        <input type="text" class="form-control" size="8"
+        <input type="text" class="form-control {{form.fieldHtmlClass}}" size="8"
                ng-show="form.key"
                ng-model="$$value$$"
                schema-validate="form"
@@ -18,7 +18,7 @@
       <span ng-if="form.feedback !== false"
         class="form-control-feedback"
         ng-class="evalInScope(form.feedback) || {'glyphicon': true, 'glyphicon-ok': hasSuccess(), 'glyphicon-remove': hasError() }"></span>
-
+    </div>
   <div class="help-block"
     ng-show="(hasError() && errorMessage(schemaError())) || form.description"
     ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description"></div>
