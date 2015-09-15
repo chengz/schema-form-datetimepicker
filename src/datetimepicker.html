@@ -7,6 +7,7 @@
         <input type="text" class="form-control {{form.fieldHtmlClass}}" 
           ng-show="form.key"
           ng-model="$$value$$"
+          ng-model-options="form.ngModelOptions"
           data-date-type="{{form.options.dateType || 'object'}}"
           data-date-format="{{form.options.dateFormat || 'dd/MM/yyyy'}}"
           data-autoclose="{{form.options.autoclose || '1'}}"
@@ -22,6 +23,7 @@
         <input type="text" class="form-control {{form.fieldHtmlClass}}" size="8"
           ng-show="form.key"
           ng-model="$$value$$"
+          ng-model-options="form.ngModelOptions"
           data-time-type="{{form.options.timeType || 'object'}}"
           data-time-format="{{form.options.timeFormat || 'shortTime'}}"
           data-minute-step="{{form.options.minuteStep || '15'}}"
@@ -30,7 +32,11 @@
       </div>
     </div>
   </div>
-  <input type="hidden" sf-changed="form" ng-model="$$value$$" schema-validate="form" />
+  <input type="hidden"
+    sf-changed="form"
+    ng-model="$$value$$"
+    ng-model-options="form.ngModelOptions"
+    schema-validate="form" />
   <div class="help-block"
     ng-show="(hasError() && errorMessage(schemaError())) || form.description"
     ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description"></div>
