@@ -4,7 +4,7 @@
     <div class="form-control-date">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-        <input type="text" class="form-control {{form.fieldHtmlClass}}" 
+        <input type="text" class="form-control {{form.fieldHtmlClass}}"
           ng-show="form.key"
           ng-model="$$value$$"
           ng-model-options="form.ngModelOptions"
@@ -21,7 +21,11 @@
       </div>
       <span ng-if="form.feedback !== false"
         class="form-control-feedback"
-        ng-class="evalInScope(form.feedback) || {'glyphicon': true, 'glyphicon-ok': hasSuccess(), 'glyphicon-remove': hasError() }"></span>
+        ng-class="evalInScope(form.feedback) || {'glyphicon': true, 'glyphicon-ok': hasSuccess(), 'glyphicon-remove': hasError() }"
+        aria-hidden="true"></span>
+
+      <span ng-if="hasError() || hasSuccess()"
+        class="sr-only">{{ hasSuccess() ? '(success)' : '(error)' }}</span>
     </div>
   </div>
   <div class="help-block"

@@ -42,6 +42,12 @@
     ng-model="$$value$$"
     ng-model-options="form.ngModelOptions"
     schema-validate="form" />
+  <span ng-if="form.feedback !== false"
+    class="form-control-feedback"
+    ng-class="evalInScope(form.feedback) || {'glyphicon': true, 'glyphicon-ok': hasSuccess(), 'glyphicon-remove': hasError() }"
+    aria-hidden="true"></span>
+  <span ng-if="hasError() || hasSuccess()"
+    class="sr-only">{{ hasSuccess() ? '(success)' : '(error)' }}</span>
   <div class="help-block"
     ng-show="(hasError() && errorMessage(schemaError())) || form.description"
     ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description"></div>
