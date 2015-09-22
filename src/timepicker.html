@@ -1,4 +1,5 @@
-<div class="form-group schema-form-timepicker {{form.htmlClass}}" ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false }">
+<div class="form-group schema-form-timepicker {{form.htmlClass}}"
+     ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false}">
   <label class="control-label {{form.labelHtmlClass}}" ng-show="showTitle()">{{form.title}}</label>
     <div class="form-control-time">
         <!--<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>-->
