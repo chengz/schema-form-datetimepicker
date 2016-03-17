@@ -4,6 +4,7 @@
     <div class="form-control-time">
         <!--<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>-->
         <input type="text" class="form-control {{form.fieldHtmlClass}}" size="8"
+               name="{{form.key.slice(-1)[0]}}"
                ng-show="form.key"
                ng-model="$$value$$"
                ng-model-options="form.ngModelOptions"
