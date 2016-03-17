@@ -2,7 +2,7 @@
      ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false}">
   <label class="control-label {{form.labelHtmlClass}}" ng-show="showTitle()">{{form.title}}</label>
     <div class="form-control-time">
-        <!--<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>-->
+        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
         <input type="text" class="form-control {{form.fieldHtmlClass}}" size="8"
                name="{{form.key.slice(-1)[0]}}"
                ng-show="form.key"
