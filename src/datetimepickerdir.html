@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="form-control-date">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+      <input type="text" class="form-control {{form.fieldHtmlClass}}"
+        name="{{form.key.slice(-1)[0]}}"
+        ng-show="form.key"
+        ng-model="moment"
+        ng-model-options="form.ngModelOptions"
+        ng-disabled="form.readonly"
+        ng-change="ctrl.dateChanged()"
+        data-date-type="{{form.options.dateType || 'object'}}"
+        data-date-format="{{form.options.dateFormat || 'dd/MM/yyyy'}}"
+        data-start-week="{{form.options.startWeek || 1}}"
+        data-autoclose="{{form.options.autoclose || '1'}}"
+        data-min-date="{{form.options.minDate}}"
+        data-max-date="{{form.options.maxDate}}"
+        data-use-native="{{form.options.useNative || false}}"
+        bs-datepicker />
+    </div>
+  </div>
+  <div class="form-control-time">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+      <input type="text" class="form-control {{form.fieldHtmlClass}}" size="8"
+        name="{{form.key.slice(-1)[0]}}"
+        ng-show="form.key"
+        ng-model="moment"
+        ng-model-options="form.ngModelOptions"
+        ng-disabled="form.readonly"
+        ng-change="ctrl.timeChanged()"
+        data-time-type="{{form.options.timeType || 'object'}}"
+        data-time-format="{{form.options.timeFormat || 'shortTime'}}"
+        data-min-time="{{form.options.minTime}}"
+        data-max-time="{{form.options.maxTime}}"
+        data-minute-step="{{form.options.minuteStep || '15'}}"
+        data-round-display="{{form.options.roundDisplay || true}}"
+        data-use-native="{{form.options.useNative || false}}"
+        bs-timepicker />
+    </div>
+  </div>
+</div>

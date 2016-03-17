@@ -2,48 +2,7 @@
      ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false}">
 
   <label class="control-label {{form.labelHtmlClass}}" ng-show="showTitle()">{{form.title}}</label>
-  <div class="row">
-    <div class="form-control-date">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-        <input type="text" class="form-control {{form.fieldHtmlClass}}" 
-          ng-show="form.key"
-          ng-model="$$value$$"
-          ng-model-options="form.ngModelOptions"
-          ng-disabled="form.readonly"
-          data-date-type="{{form.options.dateType || 'object'}}"
-          data-date-format="{{form.options.dateFormat || 'dd/MM/yyyy'}}"
-          data-autoclose="{{form.options.autoclose || '1'}}"
-          data-min-date="{{form.options.minDate}}"
-          data-max-date="{{form.options.maxDate}}"
-          data-use-native="{{form.options.useNative || false}}"
-          bs-datepicker />
-      </div>
-    </div>
-    <div class="form-control-time">
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-        <input type="text" class="form-control {{form.fieldHtmlClass}}" size="8"
-          ng-show="form.key"
-          ng-model="$$value$$"
-          ng-model-options="form.ngModelOptions"
-          ng-disabled="form.readonly"
-          data-time-type="{{form.options.timeType || 'object'}}"
-          data-time-format="{{form.options.timeFormat || 'shortTime'}}"
-          data-min-time="{{form.options.minTime}}"
-          data-max-time="{{form.options.maxTime}}"
-          data-minute-step="{{form.options.minuteStep || '15'}}"
-          data-round-display="{{form.options.roundDisplay || true}}"
-          data-use-native="{{form.options.useNative || false}}"
-          bs-timepicker />
-      </div>
-    </div>
-  </div>
-  <input type="hidden"
-    sf-changed="form"
-    ng-model="$$value$$"
-    ng-model-options="form.ngModelOptions"
-    schema-validate="form" />
+  <asf-date-time-picker ng-model="$$value$$" sf-changed="form" />
   <span ng-if="form.feedback !== false"
     class="form-control-feedback"
     ng-class="evalInScope(form.feedback) || {'glyphicon': true, 'glyphicon-ok': hasSuccess(), 'glyphicon-remove': hasError() }"
