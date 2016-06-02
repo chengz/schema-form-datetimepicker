@@ -55,9 +55,7 @@ angular.module('schemaForm-datetimepicker', ['schemaForm', 'mgcrea.ngStrap'])
                 scope.ngModel = ngModel;
 
                 ngModel.$render = function () {
-                    if (ngModel.$viewValue) {
-                        scope.moment = ngModel.$viewValue;
-                    }
+                    scope.moment = ngModel.$viewValue;
                 };
             }
         };
