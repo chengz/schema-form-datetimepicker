@@ -36,6 +36,15 @@ angular.module('schemaForm-datetimepicker', ['schemaForm', 'mgcrea.ngStrap'])
         };
 
         $scope.moment = undefined;
+
+        // UGLY: install hasError() function in $parent scope
+        $scope.$parent.hasError = function () {
+            return $scope.hasDateError() || $scope.hasTimeError();
+        };
+        // UGLY: the same with hasSuccess()
+        $scope.$parent.hasSuccess = function () {
+            return $scope.hasDateSuccess() && $scope.hasTimeSuccess();
+        };
     }
 ])
 
@@ -46,7 +55,6 @@ angular.module('schemaForm-datetimepicker', ['schemaForm', 'mgcrea.ngStrap'])
             scope: true,
             templateUrl: 'directives/decorators/bootstrap/strap/datetimepickerdir.html',
             replace: true,
-            bindToController: true,
             controllerAs: 'ctrl',
             controller: 'asfDateTimeController',
             require: "ngModel",
@@ -56,6 +64,33 @@ angular.module('schemaForm-datetimepicker', ['schemaForm', 'mgcrea.ngStrap'])
 
                 ngModel.$render = function () {
                     scope.moment = ngModel.$viewValue;
+                };
+            }
+        };
+    }
+])
+
+.directive('asfDtpStatus', [
+    function () {
+        return {
+            restrict: 'A',
+            scope: false,
+            require: "ngModel",
+            link: function (scope, element, attrs, ngModel) {
+                var name = attrs.asfDtpStatus;
+                // UGLY: install functions in parent scope
+                scope.$parent['has' + name + 'Error'] = function () {
+                    if (!ngModel) {
+                        return false;
+                    }
+                    return ngModel.$invalid;
+                };
+                scope.$parent['has' + name + 'Success'] = function () {
+                    if (!ngModel) {
+                        return false;
+                    }
+                    return ngModel.$valid &&
+                        (!ngModel.$pristine || !ngModel.$isEmpty(ngModel.$modelValue));
                 };
             }
         };
