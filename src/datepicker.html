@@ -1,24 +1,35 @@
-<div class="form-group" ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false }">
-  <label class="control-label" ng-show="showTitle()">{{form.title}}</label>
+<div class="form-group schema-form-datepicker {{form.htmlClass}}"
+     ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false}">
+
+  <label class="control-label {{form.labelHtmlClass}}" ng-show="showTitle()">{{form.title}}</label>
   <div class="row">
     <div class="form-control-date">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-        <input type="text" class="form-control" 
+        <input type="text" class="form-control {{form.fieldHtmlClass}}"
+          name="{{form.key.slice(-1)[0]}}"
           ng-show="form.key"
           ng-model="$$value$$"
+          ng-model-options="form.ngModelOptions"
+          ng-disabled="form.readonly"
           schema-validate="form"
+          sf-changed="form"
           data-date-type="{{form.dateOptions.dateType || 'string'}}"
           data-date-format="{{form.dateOptions.dateFormat || 'dd/MM/yyyy'}}"
+          data-start-week="{{form.dateOptions.startWeek || 1}}"
           data-autoclose="{{form.dateOptions.autoclose}}"
           data-min-date="{{form.dateOptions.minDate}}"
           data-max-date="{{form.dateOptions.maxDate}}"
-          data-use-navitve="{{form.dateOptions.useNative || false}}"
+          data-use-native="{{form.dateOptions.useNative || false}}"
           bs-datepicker />
       </div>
       <span ng-if="form.feedback !== false"
         class="form-control-feedback"
-        ng-class="evalInScope(form.feedback) || {'glyphicon': true, 'glyphicon-ok': hasSuccess(), 'glyphicon-remove': hasError() }"></span>
+        ng-class="evalInScope(form.feedback) || {'glyphicon': true, 'glyphicon-ok': hasSuccess(), 'glyphicon-remove': hasError() }"
+        aria-hidden="true"></span>
+
+      <span ng-if="hasError() || hasSuccess()"
+        class="sr-only">{{ hasSuccess() ? '(success)' : '(error)' }}</span>
     </div>
   </div>
   <div class="help-block"
